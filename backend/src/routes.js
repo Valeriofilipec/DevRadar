@@ -1,9 +1,3 @@
-/*  Express: micro-framework para as rotas da api */
-const { Router } = require('express') //requisição de apenas a função 'Router' do express
-const routes = Router()
-
-const axios =  require('axios')
-const Dev = require('./models/Dev')
 /* 
  Metodos HTTP: GET, PUT, POST, DELETE
 
@@ -11,23 +5,16 @@ const Dev = require('./models/Dev')
     Query Params -> request.query (filtros, ordenação, paginação, ...)
     Route Params ->  request.params ( identificar um recurso na alteração ou remoção)
     Body -> request.body (Dados para criação ou alteração de um registro)
- */
-routes.post('/devs',async (request, response)=>{ // async ?
-    const { github_username, techs}= request.body 
-    const apiresponse = await axios.get(`https://api.github.com/users/${github_username}`) //await??
-    const { name = login, avatar_url, bio } = apiresponse.data
-    console.log(name, avatar_url, bio, github_username)
+ */ 
+// Express: micro-framework para as rotas da api
+const { Router } = require('express') //requisição de apenas a função 'Router' do express
+const routes = Router()
+const DevController = require('./controllers/DevController')
+const SearchController = require('./controllers/SearchController')
 
-    const techsArray = techs.split(',').map(tech => tech.trim())
-    const dev = await Dev.create({
-        github_username,
-        name,
-        avatar_url,
-        bio,
-        techs:techsArray
-    })
+routes.get('/devs', DevController.index)
+routes.post('/devs',DevController.store)
 
-    return response.json(dev)
-})
+routes.get('/search', SearchController.index)
 
 module.exports = routes
