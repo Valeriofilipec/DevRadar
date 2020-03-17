@@ -1,6 +1,7 @@
-//index, show, store, update, destroy
+//index, show, store, update & destroy, são funções basicas de um controller
 const axios =  require('axios')
 const Dev = require('../models/Dev')
+const parseStringAsArray = require('../utils/parseStringAsArray')
 
 module.exports = {
     async index(request, response){
@@ -10,14 +11,14 @@ module.exports = {
 
     async store(request, response){ 
         const { github_username, techs, latitude, longitude}= request.body 
-        let dev = await Dev.findOne({github_username}) // verificar a existencia do dev, p/ evitar duplicidade 
+        let dev = await Dev.findOne({github_username})  // verificar a existencia do dev, p/ evitar duplicidade 
         if(!dev){
             const apiResponse = await axios.get(`https://api.github.com/users/${github_username}`)
         
         const { name = login, avatar_url, bio } = apiresponse.data
         console.log(name, avatar_url, bio, github_username)//DEBUG
     
-        const techsArray = techs.split(',').map(tech => tech.trim())
+        const techsArray = parseStringAsArray (techs)
     
         const location = {
             type: 'Point',
