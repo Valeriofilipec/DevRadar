@@ -1,9 +1,9 @@
 import React from "react"
 
 //exemplo
-function Lixo(){
+function Lixo(props){
     return(
-        <h>Lugar do lixo é no Contentor de lixo! </h>
+        <h1>{props.title } </h1>
     )
 }
 
