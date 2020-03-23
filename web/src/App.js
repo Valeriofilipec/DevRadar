@@ -6,28 +6,23 @@ import './App.css'
 import './Sidebar.css'
 import './Main.css'
 
-import DevItem from './components/DevItem'
 import DevForm from './components/DevForm'
+import DevItem from './components/DevItem'
 
 function App() {
   const [devs, setDevs] = useState([])
 
   useEffect(() =>{
-    async function loadDev(){
+    async function loadDevs(){
       const response = await api.get('/devs')
       setDevs(response.data)
     }
-    loadDev() 
+    loadDevs() 
   }, []) 
 
   async function handleAddDev(data){
-    
     const response = await api.post('/devs',data)
-     
-
     setDevs([...devs, response.data])
-
-    console.log(response.data)//DEBUG
   }
 
   return (
@@ -39,10 +34,9 @@ function App() {
         
         <main>
           <ul>
-            { devs.map(dev => (
+            {devs.map(dev => (
               <DevItem key={dev._id} dev = {dev}/> 
             ))}
-            
           </ul>
         </main>
     </div>
