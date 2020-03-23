@@ -29,7 +29,7 @@ function DevForm({onSubmit}){
             longitude
           })
         
-         setGithubUsername('')
+        setGithubUsername('')
         setTechs('')
     }
     return (

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const PointSchema = require('./utils/PointSchema')
 
-const DevSchema = mongoose.Schema({
+const DevSchema = new mongoose.Schema({
     name: String,
     github_username: String,
     bio: String,

@@ -6,7 +6,7 @@ const parseStringAsArray = require('../utils/parseStringAsArray')
 module.exports = {
     async index(request, response){
         const devs = await Dev.find()
-        return response.json({devs})
+        return response.json(devs)
     },
 
     async store(request, response){ 
@@ -15,10 +15,7 @@ module.exports = {
         if(!dev){
             const apiresponse = await axios.get(`https://api.github.com/users/${github_username}`)
             const { name = login, avatar_url, bio } = apiresponse.data
-            console.log(name, avatar_url, bio, github_username)//DEBUG
-        
             const techsArray = parseStringAsArray (techs)
-        
             const location = {
                 type: 'Point',
                 coordinates: [longitude,latitude]
