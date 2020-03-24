@@ -30,17 +30,12 @@ module.exports = {
             }) 
         }
         return response.json(dev)
-    }/*,
+    },/*
     async destroy( request,response){
         //atualizar dados de um dev (como nome, avatar, bio, techs & localização)
         const { github_username }= request.body
-        
-        try {
-            let dev = await Dev.findOneAndRemove({"github_username":{$eq : {github_username}}})  // verificar a existencia do dev, p/ evitar duplicidade 
-        } finally {
-            console.log(dev)
-            //return response.json(dev)
-        }
-    }*/
-    
+        let dev = await Dev.findOneAndRemove({github_username})  // verificar a existencia do dev, p/ evitar duplicidade 
+        return response.json(dev)
+    }
+    */
 }

@@ -27,18 +27,18 @@ function App() {
 
   return (
     <div id="app">
-        <aside>
-          <strong >Cadastrar</strong>
-          <DevForm onSubmit = {handleAddDev} />
-        </aside>
-        
-        <main>
-          <ul>
-            {devs.map(dev => (
-              <DevItem key={dev._id} dev={dev}/> 
-            ))}
-          </ul>
-        </main>
+      <aside>
+        <strong >Cadastrar</strong>
+        <DevForm onSubmit = {handleAddDev} />
+      </aside>
+      
+      <main>
+        <ul>
+          {devs.map(dev => (
+            <DevItem key={dev._id} dev={dev}/> 
+          ))}
+        </ul>
+      </main>
     </div>
     )
 }
