@@ -14,4 +14,4 @@ mongoose.connect('mongodb+srv://Valeriano:error404@devradar-cluster-f0t7h.mongod
 app.use(cors())                 //cors({origin:'http://localhost:3000'}) para restringir o acesso da aplicação 
 app.use(express.json())          //habilitar requisições do formato 'json' p/ qlqr rota c/ express
 app.use(routes)
-app.listen(3333)               //definindo a rota
+app.listen(3333)               //ouvindo a porta 33333
