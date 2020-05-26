@@ -2,9 +2,11 @@ const routes = require('./routes')
 const express = require('express')     // importando o express
 const cors = require('cors')
 const mongoose = require('mongoose') // importando o mongoose(MongoDB)
+require('dotenv').config() // Ocultar Credenciais do DB
 const app = express()
 
-mongoose.connect('mongodb+srv://Valeriano:error404@devradar-cluster-f0t7h.mongodb.net/DevRadarDB?retryWrites=true&w=majority',{
+console.log()
+mongoose.connect(process.env.DB_CONNECT,{
   useNewUrlParser: true, 
   useUnifiedTopology: true,
   useFindAndModify: false,
