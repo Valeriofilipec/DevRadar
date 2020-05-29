@@ -1,10 +1,14 @@
-import * as React from 'react'
-import {View} from 'react-native'
+import * as React from 'react';
+import {  Button,View, Text } from 'react-native';
 
-function Main() {
+function Main({navigation}) {
     return (
       <View style={{ flex: 1, backgroundColor: 'rgb(163, 202, 162)', alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Valeriano Filipe</Text>
+        <Text>Valeriano Calológio</Text>
+        <Button
+        title="Go to Profile"
+        onPress={() => navigation.navigate('Profile')}
+      />
       </View>
     );
   }
