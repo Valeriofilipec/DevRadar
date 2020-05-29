@@ -3,7 +3,7 @@ import {  Button,View, Text } from 'react-native';
 
 function Main({navigation}) {
     return (
-      <View style={{ flex: 1, backgroundColor: 'rgb(163, 202, 162)', alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 1,backgroundColor: '#A3CAA2', alignItems: 'center', justifyContent: 'center' }}>
         <Text>Valeriano Calológio</Text>
         <Button
         title="Go to Profile"
