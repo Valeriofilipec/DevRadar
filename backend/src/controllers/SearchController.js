@@ -24,13 +24,4 @@ module.exports = {
         return response.json({devs})
     }
 
-    //TPC
-    /*
-    ansyc update(){
-        //atualizar dados de um dev (como nome, avatar, bio, techs & localização,  )
-    }
-    ansyc destroy(){
-        // apagar um dev
-    }
-    */
 }

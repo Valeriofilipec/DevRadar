@@ -30,12 +30,16 @@ module.exports = {
             }) 
         }
         return response.json(dev)
-    },/*
-    async destroy( request,response){
+    },
+    /*
+    ansyc update(){
         //atualizar dados de um dev (como nome, avatar, bio, techs & localização)
         const { github_username }= request.body
         let dev = await Dev.findOneAndRemove({github_username})  // verificar a existencia do dev, p/ evitar duplicidade 
         return response.json(dev)
+    }
+    ansyc destroy(){
+        // apagar um dev
     }
     */
 }
